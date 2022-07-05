@@ -18,3 +18,15 @@ Content-Type: application/json
     "email": "Aristóteles@gmail.com",
     "password": "217y371$23gyd"
 }
+
+
+###
+POST http://localhost:3000/band/signup
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI1YzU5NTAwLTk3NTEtNDBhYS1hZjkyLThiNDhjYTBiYWM3ZCIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY1NzA0OTcwOSwiZXhwIjoxNjU3MDUwMzA5fQ.V-FUKEccNLSnsz8dsqcvzNCnQ3Eq0SFOoFmh7QUth6o
+
+{
+    "name": "Novos Baianos",
+    "musicGenre": "Rock",
+    "responsible": "Paulinho Boca de Cantor"
+}
