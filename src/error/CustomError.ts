@@ -51,3 +51,9 @@ export class UserNotFound extends CustomError {
     super("User not Found", 400);
   }
 }
+
+export class BandNotFound extends CustomError {
+  constructor(){
+    super("Band not Found", 400);
+  }
+}
