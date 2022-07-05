@@ -1,6 +1,6 @@
 import { BandDatabase } from "../data/BandDatabase";
 import { BandInput } from "../model/Bands";
-import { EmptyFields, NoLog, UnauthorizedUser } from "../error/BaseError";
+import { EmptyFields, NoLog, UnauthorizedUser } from "../error/CustomError";
 import { Authenticator } from "../services/Authenticator";
 import { GeneratorID } from "../services/GeneratorID";
 
