@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { UserInputDTO, LoginInputDTO} from "../model/User";
+import { UserInput, LoginInputDTO} from "../model/User";
 import { UserBusiness } from "../business/UserBusiness";
 import { BaseDatabase } from "../data/BaseDatabase";
 
@@ -7,7 +7,7 @@ export class UserController {
     async signup(req: Request, res: Response) {
         try {
 
-            const input: UserInputDTO = {
+            const input: UserInput = {
                 email: req.body.email,
                 name: req.body.name,
                 password: req.body.password,

@@ -60,11 +60,10 @@ export class User{
 
     static toUserModel(user: any): User {
         return new User(user.id, user.name, user.email, user.password, User.stringToUserRole(user.role));
-      }
-
-
+    }
 }
-export interface UserInput {
+
+export interface UserInputDTO {
     id: string,
     email: string,
     name: string,
@@ -72,7 +71,7 @@ export interface UserInput {
     role: string
 }
 
-export interface UserInputDTO{
+export interface UserInput{
     email: string;
     password: string;
     name: string;

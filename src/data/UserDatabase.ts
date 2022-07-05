@@ -1,11 +1,12 @@
 import { BaseDatabase } from "./BaseDatabase";
-import { User, UserInput } from "../model/User";
+import { User, UserInputDTO } from "../model/User";
+import { InvalidEmail } from "../error/CustomError";
 
 export class UserDatabase extends BaseDatabase {
 
   private static TABLE_NAME = "LAMA_USERS";
 
-  public async createUser(input: UserInput): Promise<void> {
+  public async createUser(input: UserInputDTO): Promise<void> {
     try {
       await this.getConnection()
         .insert({
@@ -26,6 +27,10 @@ export class UserDatabase extends BaseDatabase {
       .select("*")
       .from(UserDatabase.TABLE_NAME)
       .where({ email });
+      
+      if(!result[0]) {
+        throw new InvalidEmail();
+    }
 
     return User.toUserModel(result[0]);
   }

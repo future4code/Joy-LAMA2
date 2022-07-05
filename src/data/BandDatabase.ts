@@ -1,5 +1,6 @@
 import { BaseDatabase } from "./BaseDatabase";
-import { BandInputDTO } from "../model/Bands";
+import { BandInputDTO, GetBandInput } from "../model/Bands";
+import { Band } from "../model/Bands";
 
 export class BandDatabase extends BaseDatabase {
 
@@ -18,5 +19,22 @@ export class BandDatabase extends BaseDatabase {
         } catch (error: any) {
             throw new Error(error.sqlMessage || error.message);
         }
+    }
+
+    public async getBandById(band: GetBandInput) {       
+        let result 
+        if(band.id){
+            result = await this.getConnection()
+            .select("*")
+            .from(BandDatabase.TABLE_NAME)
+            .where({ id: band.id })
+        }else{
+            result = await this.getConnection()
+            .select("*")
+            .from(BandDatabase.TABLE_NAME)
+            .where({ name: band.name })
+        }      
+
+        return result[0]
     }
 };
