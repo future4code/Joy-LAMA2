@@ -11,6 +11,7 @@ import {
 import { Show, showInput, showOutputDTO, weekDay } from "../model/Show";
 import { Authenticator } from "../services/Authenticator";
 import { GeneratorID } from "../services/GeneratorID";
+import { CheckShow } from '../services/CheckShow';
 
 export class ShowBusiness {
     async createShow(show: showInput) {
@@ -44,9 +45,9 @@ export class ShowBusiness {
         const showDataBase = await new ShowDatabase();
 
         const allShows = await showDataBase.getAllShows();
-        const checkShow = allShows.find((e => e.week_day === weekDay && e.start_time === startTime && e.end_time === endTime))
+        const checkShow = await CheckShow.available(allShows, show);
 
-        if(checkShow){
+        if(!checkShow){
             throw new InvalidShowTime();
         }
 
