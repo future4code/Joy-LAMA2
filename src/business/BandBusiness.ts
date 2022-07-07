@@ -52,13 +52,20 @@ export class BandBusiness {
         }
 
         const bandDatabase = new BandDatabase();
-        const band = await bandDatabase.getBandById(input);
-        
-        if(!band){
-            throw new BandNotFound();
-        }
+        let band
 
-
-        return Band.toBandModel(band);
+       if(input.name){
+            band = await bandDatabase.getBandByName(input.name);
+            if(!band){
+                throw new BandNotFound();
+            }
+            return band;
+       }else{
+            band = await bandDatabase.getBandById(input.id as string);
+            if(!band){
+                throw new BandNotFound();
+            }
+            return band;
+       }
     }
 }

@@ -30,3 +30,18 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI1YzU5NTAwLTk3NTEt
     "musicGenre": "Rock",
     "responsible": "Paulinho Boca de Cantor"
 }
+
+###
+GET http://localhost:3000/band/Novos Baianos
+
+###
+POST http://localhost:3000/show/signup
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI1YzU5NTAwLTk3NTEtNDBhYS1hZjkyLThiNDhjYTBiYWM3ZCIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY1NzE1ODk2MywiZXhwIjoxNjU3MTU5NTYzfQ.v9I-LYy_bOYKYP5F6TphW3Khh3jY80z_5F_R8wB0YMs
+
+{
+    "weekDay": "SEXTA",
+    "startTime": 9,
+    "endTime": 13,
+    "bandId": "d7feed53-b261-42e0-9c38-b42d8becaa6d" 
+}
