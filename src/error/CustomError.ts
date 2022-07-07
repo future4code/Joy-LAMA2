@@ -1,4 +1,4 @@
-export abstract class CustomError extends Error {
+export class CustomError extends Error {
   constructor(message: string, public code: number) {
     super(message);
   }
@@ -55,5 +55,17 @@ export class UserNotFound extends CustomError {
 export class BandNotFound extends CustomError {
   constructor(){
     super("Band not Found", 400);
+  }
+}
+
+export class InvalidTime extends CustomError{
+  constructor(){
+      super("Invalid time", 400)
+  }
+}
+
+export class InvalidShowTime extends CustomError{
+  constructor(){
+    super("Invalid day of week and time", 400)
   }
 }
