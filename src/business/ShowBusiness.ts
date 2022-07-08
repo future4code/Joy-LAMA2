@@ -6,7 +6,8 @@ import {
     InvalidTime,
     NoLog,
     UnauthorizedUser,
-    InvalidShowTime
+    InvalidShowTime,
+    CustomError
 } from "../error/CustomError";
 import { Show, showInput, showOutputDTO, weekDay } from "../model/Show";
 import { Authenticator } from "../services/Authenticator";
@@ -62,5 +63,25 @@ export class ShowBusiness {
         }
 
         await showDataBase.createShow(input);
+    }
+
+    public async getShowsByWeekDay(weekDay: string, token: string): Promise<any> {
+        if(!weekDay){
+            throw new EmptyFields();
+        }
+
+        if(!token){
+            throw new NoLog();
+        }
+
+        Show.stringToWeekDay(weekDay);
+
+        const result = await new ShowDatabase().getShowsByWeekDay(weekDay);
+
+        if(!result){
+            throw new CustomError("No shows not found", 404);
+        }
+
+        return result
     }
 }

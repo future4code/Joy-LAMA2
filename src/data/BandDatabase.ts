@@ -7,6 +7,7 @@ export class BandDatabase extends BaseDatabase {
     private static TABLE_NAME = "LAMA_BANDS"
 
     public async createBand(input: BandInputDTO): Promise<void> {
+       
         try {
             await this.getConnection()
                 .insert({

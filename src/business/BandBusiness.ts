@@ -15,30 +15,34 @@ import { GeneratorID } from "../services/GeneratorID";
 
 export class BandBusiness {
     async createBand(input: BandInput) {
+        const { name, musicGenre, responsible, token } = input;
+
+        if (!token) {
+            console.log("entrei no if");
+            throw new NoLog();
+        }
 
         const idGenerator = new GeneratorID();
         const id = idGenerator.generate();
 
-        if (!input.token) {
-            throw new NoLog();
-        }
-
+        console.log(input);
+        
         const authenticator = await new Authenticator();
-        const accessToken = authenticator.getData(input.token);
+        const accessToken = authenticator.getData(token);
 
         if (accessToken.role !== "ADMIN") {
             throw new UnauthorizedUser();
         }
 
-        if (!input.name || !input.musicGenre || !input.responsible) {
+        if (!name || !musicGenre || !responsible) {
             throw new EmptyFields();
         }
 
         const inputBand = {
             id,
-            name: input.name,
-            musicGenre: input.musicGenre,
-            responsible: input.responsible,
+            name,
+            musicGenre,
+            responsible
         }
 
         const bandDatabase = new BandDatabase();
