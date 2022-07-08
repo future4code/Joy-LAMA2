@@ -23,25 +23,29 @@ Content-Type: application/json
 ###
 POST http://localhost:3000/band/signup
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI1YzU5NTAwLTk3NTEtNDBhYS1hZjkyLThiNDhjYTBiYWM3ZCIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY1NzA0OTcwOSwiZXhwIjoxNjU3MDUwMzA5fQ.V-FUKEccNLSnsz8dsqcvzNCnQ3Eq0SFOoFmh7QUth6o
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI1YzU5NTAwLTk3NTEtNDBhYS1hZjkyLThiNDhjYTBiYWM3ZCIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY1NzI0NTkxMCwiZXhwIjoxNjU3MjQ2NTEwfQ.XrQ7RDtfjJSv9wMYfjWkg7CnsdGYEG5Begvy27oYEWo
 
 {
-    "name": "Novos Baianos",
+    "name": "Iron",
     "musicGenre": "Rock",
-    "responsible": "Paulinho Boca de Cantor"
+    "responsible": "Steve"
 }
 
 ###
-GET http://localhost:3000/band/Novos Baianos
+GET http://localhost:3000/band/Iron
 
 ###
 POST http://localhost:3000/show/signup
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI1YzU5NTAwLTk3NTEtNDBhYS1hZjkyLThiNDhjYTBiYWM3ZCIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY1NzE1ODk2MywiZXhwIjoxNjU3MTU5NTYzfQ.v9I-LYy_bOYKYP5F6TphW3Khh3jY80z_5F_R8wB0YMs
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI1YzU5NTAwLTk3NTEtNDBhYS1hZjkyLThiNDhjYTBiYWM3ZCIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY1NzI0NzMxMSwiZXhwIjoxNjU3MjQ3OTExfQ.pllzwo_sJsJUdZHrr4ksjOGxzVF8ax5WH6EckThAtXo
 
 {
     "weekDay": "SEXTA",
-    "startTime": 9,
-    "endTime": 13,
-    "bandId": "d7feed53-b261-42e0-9c38-b42d8becaa6d" 
+    "startTime": 17,
+    "endTime": 22,
+    "bandId": "589ea4ce-65d5-4e03-aae9-60e6c4bdfcca" 
 }
+
+###
+GET http://localhost:3000/show/list/SEXTA
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI1YzU5NTAwLTk3NTEtNDBhYS1hZjkyLThiNDhjYTBiYWM3ZCIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY1NzI0NzMxMSwiZXhwIjoxNjU3MjQ3OTExfQ.pllzwo_sJsJUdZHrr4ksjOGxzVF8ax5WH6EckThAtXo

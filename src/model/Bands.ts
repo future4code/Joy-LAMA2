@@ -56,7 +56,7 @@ export interface BandInput {
     name: string,
     musicGenre: string,
     responsible: string,
-    token: string
+    token?: string
 }
 
 export interface GetBandInput {

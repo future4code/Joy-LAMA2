@@ -24,4 +24,15 @@ export class ShowController {
 
         await BaseDatabase.destroyConnection();
     }
+
+    async getShowsByWeekDay(req: Request, res: Response) {
+        try{
+           const result = await new ShowBusiness().getShowsByWeekDay(req.params.weekDay, req.headers.authorization as string);
+
+            res.status(200).send({message: result})
+        }catch (error: any) {
+            res.status(500).send(error.sqlMessage || error.message);
+        }
+        await BaseDatabase.destroyConnection();
+    } 
 }

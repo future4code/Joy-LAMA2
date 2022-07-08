@@ -33,4 +33,19 @@ export class ShowDatabase extends BaseDatabase {
             throw new Error(error.sqlMessage || error.message);
         }
     }
-};
+
+    public async getShowsByWeekDay(weekDay: string): Promise<showOutputDTO[]> {
+        try {
+            const result = await this.getConnection()
+            .select("LAMA_BANDS.name", "LAMA_BANDS.music_genre")
+            .from(ShowDatabase.TABLE_NAME)
+            .leftJoin("LAMA_BANDS", "LAMA_BANDS.id", "LAMA_SHOWS.band_id")
+            .where({ week_day: weekDay })
+            .orderBy("start_time");
+            
+            return result
+        } catch (error: any) {
+            throw new Error(error.sqlMessage || error.message);
+        }
+    }
+}
