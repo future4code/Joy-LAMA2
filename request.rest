@@ -1,0 +1,51 @@
+###
+POST http://localhost:3000/user/signup
+Content-Type: application/json
+
+{
+    "name": "teste2", 
+    "email": "teste2@gmail.com" ,
+    "password": "adadadd",
+    "role": "NORMAL"
+}
+
+
+###
+POST http://localhost:3000/user/login
+Content-Type: application/json
+
+{
+    "email": "Aristóteles@gmail.com",
+    "password": "217y371$23gyd"
+}
+
+
+###
+POST http://localhost:3000/band/signup
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI1YzU5NTAwLTk3NTEtNDBhYS1hZjkyLThiNDhjYTBiYWM3ZCIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY1NzI0NTkxMCwiZXhwIjoxNjU3MjQ2NTEwfQ.XrQ7RDtfjJSv9wMYfjWkg7CnsdGYEG5Begvy27oYEWo
+
+{
+    "name": "Iron",
+    "musicGenre": "Rock",
+    "responsible": "Steve"
+}
+
+###
+GET http://localhost:3000/band/Iron
+
+###
+POST http://localhost:3000/show/signup
+Content-Type: application/json
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI1YzU5NTAwLTk3NTEtNDBhYS1hZjkyLThiNDhjYTBiYWM3ZCIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY1NzI0NzMxMSwiZXhwIjoxNjU3MjQ3OTExfQ.pllzwo_sJsJUdZHrr4ksjOGxzVF8ax5WH6EckThAtXo
+
+{
+    "weekDay": "SEXTA",
+    "startTime": 17,
+    "endTime": 22,
+    "bandId": "589ea4ce-65d5-4e03-aae9-60e6c4bdfcca" 
+}
+
+###
+GET http://localhost:3000/show/list/SEXTA
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI1YzU5NTAwLTk3NTEtNDBhYS1hZjkyLThiNDhjYTBiYWM3ZCIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY1NzI0NzMxMSwiZXhwIjoxNjU3MjQ3OTExfQ.pllzwo_sJsJUdZHrr4ksjOGxzVF8ax5WH6EckThAtXo
